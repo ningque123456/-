@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            margin: 0 auto;
+            padding: 10px;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+        }
+        img{
+            width: 500px;
+            height: 500px;
+        }
+
+        
+    </style>
+    <script type="text/javascript">
+   
+    window.onload=function(){
+        var photos=["../photos/1.jpg","../photos/2.jpg","../photos/3.jpg","../photos/4.jpg","../photos/5.jpg"];
+        var index=0;
+        var img=document.getElementsByTagName("img")[0];
+        var prev=document.getElementById("prev");
+        prev.onclick=function(){
+            if(index<0){
+                index=photos.length;
+            }
+            img.src=photos[--index];
+        }
+        var next=document.getElementById("next");
+        next.onclick=function(){
+            if(index>photos.length){
+                index=0;
+               
+            }
+            img.src=photos[++index];
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <img src="../photos/1.jpg" alt="">
+        <button id="prev">上一页</button>
+        <button id="next">下一页</button>
+    </div>
+</body>
+</html>

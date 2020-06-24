@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    window.onload=function(){
+        var checkAllBtn=document.getElementById("checkAllBtn");
+        checkAllBtn.onclick=function(){
+            var items=document.getElementsByName("items");
+            for(var i=0;i<items.length;i++){
+                items[i].checked=true;
+            }
+        };
+
+        var checkNoBtn=document.getElementById("checkNoBtn");
+        checkNoBtn.onclick=function(){
+            var items=document.getElementsByName("items");
+            for(var i=0;i<items.length;i++){
+                items[i].checked=false;
+            }   
+        };
+        var checkRevBtn=document.getElementById("checkRevBtn");
+        checkRevBtn.onclick=function(){
+            var items=document.getElementsByName("items");
+            for(var i=0;i<items.length;i++){
+                if(items[i].checked==true){
+                    items[i].checked=false;
+                }
+                else if(items[i].checked==false){
+                    items[i].checked=true;
+                }
+            }
+        };
+        var Send=document.getElementById("Send");
+        Send.onclick=function(){
+            var items=document.getElementsByName("items");
+            for(var i=0;i<items.length;i++){
+            if(items[i].checked==true){
+                alert(items[i].value);
+            }
+        }
+        }
+        
+    }
+    </script>
+</head>
+<body>
+    <form action="" method="post">
+        你爱好的运动是? <input type="checkbox" name="" id="checkedallbox">全选/全不选
+        <br>
+        <input type="checkbox" name="items" value="篮球"> 篮球
+        <input type="checkbox" name="items" value="足球"> 足球
+        <input type="checkbox" name="items" value="羽毛球"> 羽毛球
+        <input type="checkbox" name="items" value="乒乓球"> 乒乓球
+        <br>
+        <input type="checkbox" id="checkAllBtn" value="全 选">全 选
+        <input type="checkbox" id="checkNoBtn" value="全不选">全不选
+        <input type="checkbox" id="checkRevBtn" value="反 选">反 选
+        <input type="checkbox" id="Send" value="提 交">提 交
+
+    </form>
+</body>
+</html>
