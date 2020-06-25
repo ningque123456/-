@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    window.onload=function(){
+        myClick("btn01",function(){
+            var li = document.createElement("li");
+            var text = document.createTextNode("广州");
+            li.appendChild(text);
+            var city=document.getElementById("city");
+            city.appendChild(li);
+        });
+        myClick("btn02",function(){
+            var li = document.createElement("li");
+            var text = document.createTextNode("广州");
+            li.appendChild(text);
+            var bj = document.getElementById("bj");
+            var city = document.getElementById("city");
+            city.insertBefore(li,bj);
+
+        });
+        myClick("btn03",function(){
+            var li = document.createElement("li");
+            var text = document.createTextNode("广州");
+            li.appendChild(text);
+            var bj = document.getElementById("bj");
+            var city = document.getElementById("city");
+            city.replaceChild(li,bj);
+        });
+        myClick("btn04",function(){
+            // var city = document.getElementById("city");
+            var bj = document.getElementById("bj");
+            bj.parentNode.removeChild(bj);
+        });
+        myClick("btn05",function(){
+            var city=document.getElementById("city");
+            alert(city.innerHTML);
+        });
+        myClick("btn06",function(){
+            var bj = document.getElementById("bj");
+            bj.innerHTML="az";
+        });
+        myClick("btn07",function(){
+            var city=document.getElementById("city");
+            city.innerHTML+="<li>广东</li>";
+        });
+        
+        function myClick(idStr,fun){
+            var btn=document.getElementById(idStr);
+            btn.onclick=fun;
+        }
+    }
+    </script>
+    <style>
+        #total{
+            float:left;
+        }
+        li{
+            background-color: #bfa;
+            border: 1px solid red ;
+        }
+    </style>
+</head>
+<body>
+    <div id="total">
+        <div class="inner">
+            <p>
+                你喜欢哪个城市？
+            </p>
+            <ul id="city">
+                <li id="bj">北京</li>
+                <li>上海</li>
+                <li>东京</li>
+                <li>首尔</li>
+            </ul>
+        </div>
+    </div>
+    <div id="btnlist">
+        <div><button id="btn01">创建一个“广州”节点，添加到#city下</button></div>
+        <div><button id="btn02">将“广州”节点插入到#bj前边  </button></div>
+        <div><button id="btn03">使用“广州”节点替换#bj节点</button></div>
+        <div><button id="btn04">删除#bj节点</button></div>
+        <div><button id="btn05">读取#city内的HTML代码</button></div>
+        <div><button id="btn06">设置#bj内的HTML代码</button></div>
+        <div><button id="btn07">创建一个“广州”节点，添加到#city下</button></div>
+       
+    </div>
+</body>
+</html>
